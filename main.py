@@ -46,10 +46,13 @@ def random_move():
             turtle_writer.clear()
             score += 1
             turtle_writer.write(arg="Score: {}".format(score), move=False, align="center", font=FONT)
+
         turtle_object.onclick(handle_click)
         turtle_object.goto(randint(-200,200),randint(-250,220))
         turtle_object.showturtle()
-        turtle_screen.ontimer(random_move,1000)
+        turtle_screen.ontimer(random_move,750)
+        time.sleep(0.3)
+        turtle_object.hideturtle()
 
 
 def finisher(time):
@@ -66,10 +69,9 @@ def finisher(time):
     else:
         finish_game = True
         finisher_turtle.clear()
-        turtle_object.hideturtle()
         finisher_turtle.write(arg="Game Over!", move=False, align="center", font=FONT)
+        turtle_object.hideturtle()
 
-turtle_object.hideturtle()
 
 score_turtle()
 random_move()
